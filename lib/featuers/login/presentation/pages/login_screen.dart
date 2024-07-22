@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:todo_task/featuers/login/view/widgets/heading.dart';
-import 'package:todo_task/featuers/login/view/widgets/login_bloc_listener.dart';
-import 'package:todo_task/featuers/login/view/widgets/login_form.dart';
+import 'package:todo_task/featuers/login/presentation/widgets/heading.dart';
+import 'package:todo_task/featuers/login/presentation/widgets/login_bloc_listener.dart';
+import 'package:todo_task/featuers/login/presentation/widgets/login_form.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});

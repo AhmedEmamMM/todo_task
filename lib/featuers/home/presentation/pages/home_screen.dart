@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_task/core/helper/extentions.dart';
 import 'package:todo_task/core/widgets/dialogbox.dart';
-import 'package:todo_task/featuers/home/data/todo.dart';
-import 'package:todo_task/featuers/home/logic/todo_cubit.dart';
-import 'package:todo_task/featuers/home/view/widgets/update_todo_dialog_box.dart';
-import 'package:todo_task/featuers/login/data/login_respond_model.dart';
+import 'package:todo_task/core/widgets/loading_indicator.dart';
+import 'package:todo_task/featuers/home/data/models/todo_model.dart';
+import 'package:todo_task/featuers/home/presentation/bloc/todo_cubit.dart';
+import 'package:todo_task/featuers/home/presentation/widgets/update_todo_dialog_box.dart';
+import 'package:todo_task/featuers/login/data/models/login_respond_model.dart';
 
 class HomeScreen extends StatefulWidget {
   final LoginResponesModel? loginResponesModel;
@@ -53,14 +54,14 @@ class _HomeScreenState extends State<HomeScreen> {
       body: BlocBuilder<TodoCubit, TodoState>(
         builder: (context, state) {
           if (state is TodoInitial) {
-            return const Center(child: CircularProgressIndicator());
+            return const LoadingIndicator();
           } else if (state is GetTodoLoading) {
-            return const Center(child: CircularProgressIndicator());
+            return const LoadingIndicator();
           } else if (state is GetTodoSuccess) {
             return ListView.builder(
               itemCount: state.allTodos.length,
               itemBuilder: (context, index) {
-                TODO todo = state.allTodos[index];
+                TodoModel todo = state.allTodos[index];
                 return Container(
                   margin: const EdgeInsets.only(bottom: 15.0),
                   decoration: const BoxDecoration(color: Colors.blueGrey),
@@ -98,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   statusController: statusController!,
                                   onSave: () {
                                     context.read<TodoCubit>().updateTodo(
-                                          TODO(
+                                          TodoModel(
                                             id: todo.id,
                                             userId: todo.userId,
                                             title: titleController!.text.isEmpty
@@ -149,7 +150,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 todoController: todoController,
                 onSave: () {
                   BlocProvider.of<TodoCubit>(context).createTodo(
-                    TODO(
+                    TodoModel(
                       userId: int.parse(userIDController.text),
                       title: todoController.text,
                       status: "pending",

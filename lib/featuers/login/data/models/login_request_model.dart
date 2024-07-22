@@ -1,12 +1,8 @@
-class LoginRequestModel {
-  String? username;
-  String? password;
+import 'package:todo_task/featuers/login/domain/entities/login_request.dart';
 
-  LoginRequestModel({
-    this.username,
-    this.password,
-  });
-
+class LoginRequestModel extends LoginRequest {
+  LoginRequestModel({super.username, super.password});
+  
   factory LoginRequestModel.fromJson(Map<String, dynamic> json) =>
       LoginRequestModel(
         username: json["username"],

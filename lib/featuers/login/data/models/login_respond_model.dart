@@ -1,24 +1,16 @@
-class LoginResponesModel {
-  int? id;
-  String? username;
-  String? email;
-  String? firstName;
-  String? lastName;
-  String? gender;
-  String? image;
-  String? token;
-  String? refreshToken;
+import 'package:todo_task/featuers/login/domain/entities/login_response.dart';
 
+class LoginResponesModel extends LoginRespones {
   LoginResponesModel({
-    this.id,
-    this.username,
-    this.email,
-    this.firstName,
-    this.lastName,
-    this.gender,
-    this.image,
-    this.token,
-    this.refreshToken,
+    super.id,
+    super.username,
+    super.email,
+    super.firstName,
+    super.lastName,
+    super.gender,
+    super.image,
+    super.token,
+    super.refreshToken,
   });
 
   LoginResponesModel.fromJson(Map<String, dynamic> json) {

@@ -12,7 +12,7 @@ final class TodoInitial extends TodoState {}
 class GetTodoLoading extends TodoState {}
 
 class GetTodoSuccess extends TodoState {
-  final List<TODO> allTodos;
+  final List<TodoModel> allTodos;
 
   const GetTodoSuccess(this.allTodos);
   @override

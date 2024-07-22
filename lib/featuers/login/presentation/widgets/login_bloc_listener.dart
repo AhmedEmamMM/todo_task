@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_task/core/helper/extentions.dart';
-import 'package:todo_task/core/networking/api_servcies.dart';
-import 'package:todo_task/featuers/home/logic/todo_cubit.dart';
-import 'package:todo_task/featuers/home/view/home_screen.dart';
-import 'package:todo_task/featuers/login/logic/login_cubit.dart';
+import 'package:todo_task/featuers/home/data/dataSources/api_servcies.dart';
+import 'package:todo_task/featuers/home/data/repositories_imp/todo_repositories_imp.dart';
+import 'package:todo_task/featuers/home/presentation/bloc/todo_cubit.dart';
+import 'package:todo_task/featuers/home/presentation/pages/home_screen.dart';
+import 'package:todo_task/featuers/login/presentation/bloc/login_cubit.dart';
 
 class LoginBlocListener extends StatelessWidget {
   const LoginBlocListener({super.key});
@@ -33,7 +34,7 @@ class LoginBlocListener extends StatelessWidget {
             context,
             MaterialPageRoute(
               builder: (context) => BlocProvider<TodoCubit>(
-                create: (context) => TodoCubit(ApiServcies())..getTodos(),
+                create: (context) => TodoCubit(TodoRepositoriesImp(ApiServcies()))..getTodos(),
                 child: HomeScreen(
                   loginResponesModel: state.loginRespondModel,
                 ),

@@ -1,13 +1,9 @@
-class TODO {
-  int? id;
-  int? userId;
-  String? title;
-  String? dueOn;
-  String? status;
+import 'package:todo_task/featuers/home/domain/entities/todo.dart';
 
-  TODO({this.id, this.userId, this.title, this.dueOn, this.status});
+class TodoModel extends TODO {
+  TodoModel({super.id, super.userId, super.title, super.dueOn, super.status});
 
-  TODO.fromJson(Map<String, dynamic> json) {
+  TodoModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     userId = json['user_id'];
     title = json['title'];

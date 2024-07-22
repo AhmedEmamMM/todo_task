@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_task/core/helper/extentions.dart';
 import 'package:todo_task/core/widgets/my_button.dart';
-import 'package:todo_task/featuers/login/data/login_request_model.dart';
-import 'package:todo_task/featuers/login/logic/login_cubit.dart';
+import 'package:todo_task/featuers/login/data/models/login_request_model.dart';
+import 'package:todo_task/featuers/login/presentation/bloc/login_cubit.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});

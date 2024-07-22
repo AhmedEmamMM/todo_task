@@ -3,10 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:todo_task/core/helper/extentions.dart';
 import 'package:todo_task/core/widgets/my_button.dart';
-import 'package:todo_task/featuers/home/data/todo.dart';
+import 'package:todo_task/featuers/home/data/models/todo_model.dart';
 
 class UpdateTodoDialogBox extends StatelessWidget {
-  final TODO currentTodo;
+  final TodoModel currentTodo;
   final TextEditingController titleController;
   final TextEditingController statusController;
   VoidCallback onSave;
